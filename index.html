@@ -3,23 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment1</title>
+    <title>Home</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>COP4813 Web Systems I Home Page</h1>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="#">Assignments</a>
+            <ul class="dropdown">
+                <li><a href="a1.html">Assignment 1</a></li>
+                <li><a href="a2.html">Assignment 2</a></li>
+                <li><a href="a3.html">Assignment 3</a></li>
+                <li><a href="a4.html">Assignment 4</a></li>
+		<li><a href="a5.html">Assignment 5</a></li>
+                <li><a href="a6.html">Assignment 6</a></li>
+                <li><a href="a7.html">Assignment 7</a></li>
+                <li><a href="a8.html">Assignment 8</a></li>
+                <li><a href="a9.html">Assignment 9</a></li>
+                <li><a href="a10.html">Assignment 10</a></li>
+                <li><a href="a11.html">Assignment 11</a></li>
+                <li><a href="a12.html">Assignment 12</a></li>
+                <li><a href="a13.html">Assignment 13</a></li>
+                <li><a href="a14.html">Assignment 14</a></li>
+                <li><a href="a15.html">Assignment 15</a></li>
+            </ul>
+        </li>
+        <li><a href="https://roneaglin.online/cop4813/">Course Info</a></li>
+    </ul>
+</nav>
+
     </header>
     <main>
         <section>
-            <h2>Hello World!</h2>
+            <h2>Hello!</h2>
             <p>This is the home page for my COP4813 Website.</p>
+	    <br>
+	    <p>This website is where all my assignments for my class, Web Systems 1, or COP4813, will be! Simply hover over the Assignments section, and click on the assignment you want to see!</p>
         </section>
-       <img src="flower.jpg" style="max-width: 30%; height: auto;">
-	   <a href="Directory.html" style="margin-top: 20px; display: block;">Assignment Directory</a>
+	    
+<section>
+    <h2>Pictures!</h2>
+    <div id="gallery" style="text-align: center;">
+        <img id="images" src="flower.jpg" style="max-width: 30%; height: auto; display: block; margin: 0 auto;">
+        <button id="next" style="margin-top: 10px;">Next</button>
+    </div>
+</section>
+
     </main>
     <footer>
         <p>Created By Kristen McLarnon</p>
     </footer>
+	<script src="pictures.js"></script>
 </body>
 </html>
