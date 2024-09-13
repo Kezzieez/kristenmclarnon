@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+    function validateForm(event) {
+		const nameForm = document.getElementById('name');
+		const addressForm = document.getElementById('address');
+		const cityForm = document.getElementById('city');
+		const zipForm = document.getElementById('zip');
+		const phoneForm = document.getElementById('phone');
+		const emailForm = document.getElementById('email');
+		const birthdateForm = document.getElementById('birthdate');
+		const confirmationForm = document.getElementById('confirmation');
+		const errorMessage = document.getElementById('error');
+    
+		errorMessage.textContent = '';
+
+    // NAMES CHECK. 2 words req.
+    const nameCheck = nameForm.value.trim().split(' ');
+    if (nameCheck.length < 2) {
+        errorMessage.textContent = 'Please enter your first and last names.';
+        event.preventDefault();
+        return;
+    }
+
+    // ADDRESS CHECK. 4 character min req.
+    if (addressForm.value.length <= 4) {
+        errorMessage.textContent = 'Address must be more than 4 characters.';
+        event.preventDefault();
+        return;
+    }
+
+    // CITY CHECK. 3 character min req.
+    if (cityForm.value.length <= 2) {
+        errorMessage.textContent = 'City must be more than 2 characters.';
+        event.preventDefault();
+        return;
+    }
+
+    // ZIP CHECK. 5 digit req.
+    const zipCheck = zipForm.value.trim();
+    if (!/^\d{5}$/.test(zipCheck)) {
+        errorMessage.textContent = 'Zip code must be 5 digits.';
+        event.preventDefault();
+        return;
+    }
+
+    // PHONE NUMBER CHECK. 10 digit req.
+    const phoneCheck = phoneForm.value.trim();
+    if (!/^\d{10}$/.test(phoneCheck)) {
+        errorMessage.textContent = 'Phone number must be 10 digits.';
+        event.preventDefault();
+        return;
+    }
+
+    // EMAIL CHECK. Follow email pattern.
+    const emailCheck = emailForm.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(emailCheck)) {
+        errorMessage.textContent = 'Please enter a valid email address.';
+        event.preventDefault();
+        return;
+    }
+
+    // BIRTHDATE CHECK. Can't be in future.
+    const birthdateCheck = new Date(birthdateForm.value);
+    const today = new Date();
+    if (birthdateCheck > today) {
+        errorMessage.textContent = 'Birthdate cannot be in the future.';
+        event.preventDefault();
+        return;
+    }
+	
+	//Confirmation check.
+	if (!confirmationForm.value.includes("Biden")) {
+		errorMessage.textContent = 'Incorrect answer to question.';
+		event.preventDefault();
+		return;
+	}
+
+	//Confirm info page.
+	const confirmationMessage = `
+    Name: ${nameForm.value}
+    Address: ${addressForm.value}
+    City: ${cityForm.value}
+    State: ${document.getElementById('state').value}
+    Zip Code: ${zipForm.value}
+    Phone Number: ${phoneForm.value}
+    Email: ${emailForm.value}
+    Birth Date: ${birthdateForm.value}
+    Message: ${message.value}`;
+
+
+	const isConfirmed = window.confirm("Is the information correct?\n" + confirmationMessage);
+		if (!isConfirmed) {
+		event.preventDefault();
+	}
+        }
+    </script>
+</head>
+<body>
+<header>
+        <h1>COP4813 Web Systems I Assignment 3</h1>
+		<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="#">Assignments</a>
+            <ul class="dropdown">
+                <li><a href="a1.html">Assignment 1</a></li>
+                <li><a href="a2.html">Assignment 2</a></li>
+                <li><a href="a3.html">Assignment 3</a></li>
+                <li><a href="a4.html">Assignment 4</a></li>
+				<li><a href="a5.html">Assignment 5</a></li>
+                <li><a href="a6.html">Assignment 6</a></li>
+                <li><a href="a7.html">Assignment 7</a></li>
+                <li><a href="a8.html">Assignment 8</a></li>
+                <li><a href="a9.html">Assignment 9</a></li>
+                <li><a href="a10.html">Assignment 10</a></li>
+                <li><a href="a11.html">Assignment 11</a></li>
+                <li><a href="a12.html">Assignment 12</a></li>
+                <li><a href="a13.html">Assignment 13</a></li>
+                <li><a href="a14.html">Assignment 14</a></li>
+                <li><a href="a15.html">Assignment 15</a></li>
+            </ul>
+        </li>
+        <li><a href="https://roneaglin.online/cop4813/">Course Info</a></li>
+    </ul>
+</nav>
+    </header>
+    <h1>Contact Form</h1>
+    <form id="contactForm" action="mailto:kristen_mclarnon@daytonastate.edu" method="post" onsubmit="validateForm(event)" enctype="text/plain">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br><br>
+
+		<label for="address">City:</label>
+        <input type="text" id="city" name="city" required><br><br>
+		
+		<label for="address">State:</label>
+		<select id="state" name="state" required>
+					<option value="" disabled selected>Select State</option>
+					<option value="AL">Alabama</option>
+					<option value="AK">Alaska</option>
+					<option value="AZ">Arizona</option>
+					<option value="AR">Arkansas</option>
+					<option value="CA">California</option>
+					<option value="CO">Colorado</option>
+					<option value="CT">Connecticut</option>
+					<option value="DE">Delaware</option>
+					<option value="FL">Florida</option>
+					<option value="GA">Georgia</option>
+					<option value="HI">Hawaii</option>
+					<option value="ID">Idaho</option>
+					<option value="IL">Illinois</option>
+					<option value="IN">Indiana</option>
+					<option value="IA">Iowa</option>
+					<option value="KS">Kansas</option>
+					<option value="KY">Kentucky</option>
+					<option value="LA">Louisiana</option>
+					<option value="ME">Maine</option>
+					<option value="MD">Maryland</option>
+					<option value="MA">Massachusetts</option>
+					<option value="MI">Michigan</option>
+					<option value="MN">Minnesots</option>
+					<option value="MS">Mississippi</option>
+					<option value="MO">Missouri</option>
+					<option value="MT">Montana</option>
+					<option value="MT">Nebraska</option>
+					<option value="NV">Nevada</option>
+					<option value="NH">New Hampshire</option>
+					<option value="NJ">New Jersey</option>
+					<option value="NM">New Mexico</option>
+					<option value="NY">New York</option>
+					<option value="NC">North Carolina</option>
+					<option value="ND">North Dakota</option>
+					<option value="OH">Ohio</option>
+					<option value="OK">Oklahoma</option>
+					<option value="OR">Oregon</option>
+					<option value="PA">Pennsylvania</option>
+					<option value="RI">Rhode Island</option>
+					<option value="SC">South Carolina</option>
+					<option value="SD">South Dakota</option>
+					<option value="TN">Tennessee</option>
+					<option value="TX">Texas</option>
+					<option value="UT">Utah</option>
+					<option value="VT">Vermont</option>
+					<option value="VA">Virginia</option>
+					<option value="WA">Washington</option>
+					<option value="WV">West Virginia</option>
+					<option value="WI">Wisconsin</option>
+					<option value="WY">Wyoming</option>
+					</select>		
+					<br><br><br>
+		<label for="zip">Zip Code:</label>
+        <input type="text" id="zip" name="zip" required><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="birthdate">Birth Date:</label>
+        <input type="date" id="birthdate" name="birthdate" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="confirmation">What is the last name of the current president?</label>
+        <input type="text" id="confirmation" name="confirmation" required><br><br>
+
+        <input type="submit" value="Submit">
+        <div id="error" style="color: red;"></div>
+    </form>
+</body>
+</html>
+			<br>
+        </section>
+    </main>
+    <footer>
+        <p>Created By Kristen McLarnon</p>
+    </footer>
+	</body>
