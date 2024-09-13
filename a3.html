@@ -8,17 +8,17 @@
 
     <script>
     function validateForm(event) {
-		const nameForm = document.getElementById('name');
-		const addressForm = document.getElementById('address');
-		const cityForm = document.getElementById('city');
-		const zipForm = document.getElementById('zip');
-		const phoneForm = document.getElementById('phone');
-		const emailForm = document.getElementById('email');
-		const birthdateForm = document.getElementById('birthdate');
-		const confirmationForm = document.getElementById('confirmation');
-		const errorMessage = document.getElementById('error');
+	const nameForm = document.getElementById('name');
+	const addressForm = document.getElementById('address');
+	const cityForm = document.getElementById('city');
+	const zipForm = document.getElementById('zip');
+	const phoneForm = document.getElementById('phone');
+	const emailForm = document.getElementById('email');
+	const birthdateForm = document.getElementById('birthdate');
+	const confirmationForm = document.getElementById('confirmation');
+	const errorMessage = document.getElementById('error');
     
-		errorMessage.textContent = '';
+	errorMessage.textContent = '';
 
     // NAMES CHECK. 2 words req.
     const nameCheck = nameForm.value.trim().split(' ');
@@ -76,15 +76,15 @@
         return;
     }
 	
-	//Confirmation check.
-	if (!confirmationForm.value.includes("Biden")) {
-		errorMessage.textContent = 'Incorrect answer to question.';
-		event.preventDefault();
-		return;
-	}
+    //Confirmation check.
+    if (!confirmationForm.value.includes("Biden")) {
+	errorMessage.textContent = 'Incorrect answer to question.';
+	event.preventDefault();
+	return;
+    }
 
-	//Confirm info page.
-	const confirmationMessage = `
+    //Confirm info page.
+    const confirmationMessage = `
     Name: ${nameForm.value}
     Address: ${addressForm.value}
     City: ${cityForm.value}
@@ -96,17 +96,17 @@
     Message: ${message.value}`;
 
 
-	const isConfirmed = window.confirm("Is the information correct?\n" + confirmationMessage);
-		if (!isConfirmed) {
-		event.preventDefault();
+    const isConfirmed = window.confirm("Is the information correct?\n" + confirmationMessage);
+	if (!isConfirmed) {
+	event.preventDefault();
 	}
-        }
+}
     </script>
 </head>
 <body>
 <header>
         <h1>COP4813 Web Systems I Assignment 3</h1>
-		<nav>
+<nav>
     <ul>
         <li><a href="index.html">Home</a></li>
         <li>
@@ -116,7 +116,7 @@
                 <li><a href="a2.html">Assignment 2</a></li>
                 <li><a href="a3.html">Assignment 3</a></li>
                 <li><a href="a4.html">Assignment 4</a></li>
-				<li><a href="a5.html">Assignment 5</a></li>
+		<li><a href="a5.html">Assignment 5</a></li>
                 <li><a href="a6.html">Assignment 6</a></li>
                 <li><a href="a7.html">Assignment 7</a></li>
                 <li><a href="a8.html">Assignment 8</a></li>
@@ -141,65 +141,65 @@
         <label for="address">Address:</label>
         <input type="text" id="address" name="address" required><br><br>
 
-		<label for="address">City:</label>
+	<label for="address">City:</label>
         <input type="text" id="city" name="city" required><br><br>
 		
 		<label for="address">State:</label>
 		<select id="state" name="state" required>
-					<option value="" disabled selected>Select State</option>
-					<option value="AL">Alabama</option>
-					<option value="AK">Alaska</option>
-					<option value="AZ">Arizona</option>
-					<option value="AR">Arkansas</option>
-					<option value="CA">California</option>
-					<option value="CO">Colorado</option>
-					<option value="CT">Connecticut</option>
-					<option value="DE">Delaware</option>
-					<option value="FL">Florida</option>
-					<option value="GA">Georgia</option>
-					<option value="HI">Hawaii</option>
-					<option value="ID">Idaho</option>
-					<option value="IL">Illinois</option>
-					<option value="IN">Indiana</option>
-					<option value="IA">Iowa</option>
-					<option value="KS">Kansas</option>
-					<option value="KY">Kentucky</option>
-					<option value="LA">Louisiana</option>
-					<option value="ME">Maine</option>
-					<option value="MD">Maryland</option>
-					<option value="MA">Massachusetts</option>
-					<option value="MI">Michigan</option>
-					<option value="MN">Minnesots</option>
-					<option value="MS">Mississippi</option>
-					<option value="MO">Missouri</option>
-					<option value="MT">Montana</option>
-					<option value="MT">Nebraska</option>
-					<option value="NV">Nevada</option>
-					<option value="NH">New Hampshire</option>
-					<option value="NJ">New Jersey</option>
-					<option value="NM">New Mexico</option>
-					<option value="NY">New York</option>
-					<option value="NC">North Carolina</option>
-					<option value="ND">North Dakota</option>
-					<option value="OH">Ohio</option>
-					<option value="OK">Oklahoma</option>
-					<option value="OR">Oregon</option>
-					<option value="PA">Pennsylvania</option>
-					<option value="RI">Rhode Island</option>
-					<option value="SC">South Carolina</option>
-					<option value="SD">South Dakota</option>
-					<option value="TN">Tennessee</option>
-					<option value="TX">Texas</option>
-					<option value="UT">Utah</option>
-					<option value="VT">Vermont</option>
-					<option value="VA">Virginia</option>
-					<option value="WA">Washington</option>
-					<option value="WV">West Virginia</option>
-					<option value="WI">Wisconsin</option>
-					<option value="WY">Wyoming</option>
-					</select>		
-					<br><br><br>
-		<label for="zip">Zip Code:</label>
+			<option value="" disabled selected>Select State</option>
+			<option value="AL">Alabama</option>
+			<option value="AK">Alaska</option>
+			<option value="AZ">Arizona</option>
+			<option value="AR">Arkansas</option>
+			<option value="CA">California</option>
+			<option value="CO">Colorado</option>
+			<option value="CT">Connecticut</option>
+			<option value="DE">Delaware</option>
+			<option value="FL">Florida</option>
+			<option value="GA">Georgia</option>
+			<option value="HI">Hawaii</option>
+			<option value="ID">Idaho</option>
+			<option value="IL">Illinois</option>
+			<option value="IN">Indiana</option>
+			<option value="IA">Iowa</option>
+			<option value="KS">Kansas</option>
+			<option value="KY">Kentucky</option>
+			<option value="LA">Louisiana</option>
+			<option value="ME">Maine</option>
+			<option value="MD">Maryland</option>
+			<option value="MA">Massachusetts</option>
+			<option value="MI">Michigan</option>
+			<option value="MN">Minnesots</option>
+			<option value="MS">Mississippi</option>
+			<option value="MO">Missouri</option>
+			<option value="MT">Montana</option>
+			<option value="MT">Nebraska</option>
+			<option value="NV">Nevada</option>
+			<option value="NH">New Hampshire</option>
+			<option value="NJ">New Jersey</option>
+			<option value="NM">New Mexico</option>
+			<option value="NY">New York</option>
+			<option value="NC">North Carolina</option>
+			<option value="ND">North Dakota</option>
+			<option value="OH">Ohio</option>
+			<option value="OK">Oklahoma</option>
+			<option value="OR">Oregon</option>
+			<option value="PA">Pennsylvania</option>
+			<option value="RI">Rhode Island</option>
+			<option value="SC">South Carolina</option>
+			<option value="SD">South Dakota</option>
+			<option value="TN">Tennessee</option>
+			<option value="TX">Texas</option>
+			<option value="UT">Utah</option>
+			<option value="VT">Vermont</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="WV">West Virginia</option>
+			<option value="WI">Wisconsin</option>
+			<option value="WY">Wyoming</option>
+			</select>		
+			<br><br><br>
+	<label for="zip">Zip Code:</label>
         <input type="text" id="zip" name="zip" required><br><br>
 
         <label for="phone">Phone Number:</label>
@@ -222,7 +222,7 @@
     </form>
 </body>
 </html>
-			<br>
+	<br>
         </section>
     </main>
     <footer>
