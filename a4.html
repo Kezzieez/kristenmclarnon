@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="styles.css">
+	<script>
+	function cubicEquation(a, b, c, d, x) {
+    return a * Math.pow(x, 3) + b * Math.pow(x, 2) + c * x + d;
+}
+
+function calculateAndPlot() {
+    const a = parseFloat(document.getElementById('a').value);
+    const b = parseFloat(document.getElementById('b').value);
+    const c = parseFloat(document.getElementById('c').value);
+    const d = parseFloat(document.getElementById('d').value);
+    const xMin = parseFloat(document.getElementById('xMin').value);
+    const xMax = parseFloat(document.getElementById('xMax').value);
+
+    const xV = [];
+    const yV = [];
+
+    for (let x = xMin; x <= xMax; x += 0.1) {
+        xV.push(x);
+        yV.push(cubicEquation(a, b, c, d, x));
+    }
+
+    plotGraph(xV, yV);
+}
+
+function plotGraph(xV, yV) {
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: xV,
+            datasets: [{
+                label: 'y = ax^3 + bx^2 + cx + d',
+                data: yV,
+                borderColor: 'rgba(217, 31, 137)',
+                borderWidth: 1,
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    ticks: {
+                        callback: function(value) {
+                            return Math.round(value);
+                        }
+                    }
+                },
+                y: {
+                    ticks: {
+                        callback: function(value) {
+                            return Math.round(value);
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+	</script>
+</head>
+<body>
+<header>
+        <h1>COP4813 Web Systems I Assignment 1</h1>
+		<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="#">Assignments</a>
+            <ul class="dropdown">
+                <li><a href="a1.html">Assignment 1</a></li>
+                <li><a href="a2.html">Assignment 2</a></li>
+                <li><a href="a3.html">Assignment 3</a></li>
+                <li><a href="a4.html">Assignment 4</a></li>
+				<li><a href="a5.html">Assignment 5</a></li>
+                <li><a href="a6.html">Assignment 6</a></li>
+                <li><a href="a7.html">Assignment 7</a></li>
+                <li><a href="a8.html">Assignment 8</a></li>
+                <li><a href="a9.html">Assignment 9</a></li>
+                <li><a href="a10.html">Assignment 10</a></li>
+                <li><a href="a11.html">Assignment 11</a></li>
+                <li><a href="a12.html">Assignment 12</a></li>
+                <li><a href="a13.html">Assignment 13</a></li>
+                <li><a href="a14.html">Assignment 14</a></li>
+                <li><a href="a15.html">Assignment 15</a></li>
+            </ul>
+        </li>
+        <li><a href="https://roneaglin.online/cop4813/">Course Info</a></li>
+    </ul>
+</nav>
+    </header>
+	<main>
+        <section>
+            <h2>This page is for assignment 2!</h2>
+			<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cubic Equation Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Cubic Equation Calculator</h1>
+    <label for="a">A:</label>
+    <input type="number" id="a" value="2" required>
+    <label for="b">B:</label>
+    <input type="number" id="b" value="2" required>
+    <label for="c">C:</label>
+    <input type="number" id="c" value="2" required>
+    <label for="d">D:</label>
+    <input type="number" id="d" value="2" required>
+    <label for="xMin">X Min:</label>
+    <input type="number" id="xMin" value="-1" required>
+    <label for="xMax">X Max:</label>
+    <input type="number" id="xMax" value="1" required>
+	<br>
+	<div class="center">
+    <button onclick="calculateAndPlot()">Calculate and Plot</button>
+	</div>
+    <canvas id="myChart" width="200" height="100"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+			<!--<p></p>-->
+        </section>
+    </main>
+    <footer>
+        <p>Created By Kristen McLarnon</p>
+    </footer>
+	</body>
