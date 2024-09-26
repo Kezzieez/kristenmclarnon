@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+        <h1>COP4813 Web Systems I Assignment 5</h1>
+		<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="#">Assignments</a>
+            <ul class="dropdown">
+                <li><a href="a1.html">Assignment 1</a></li>
+                <li><a href="a2.html">Assignment 2</a></li>
+                <li><a href="a3.html">Assignment 3</a></li>
+                <li><a href="a4.html">Assignment 4</a></li>
+				<li><a href="a5.html">Assignment 5</a></li>
+                <li><a href="a6.html">Assignment 6</a></li>
+                <li><a href="a7.html">Assignment 7</a></li>
+                <li><a href="a8.html">Assignment 8</a></li>
+                <li><a href="a9.html">Assignment 9</a></li>
+                <li><a href="a10.html">Assignment 10</a></li>
+                <li><a href="a11.html">Assignment 11</a></li>
+                <li><a href="a12.html">Assignment 12</a></li>
+                <li><a href="a13.html">Assignment 13</a></li>
+                <li><a href="a14.html">Assignment 14</a></li>
+                <li><a href="a15.html">Assignment 15</a></li>
+            </ul>
+        </li>
+        <li><a href="https://roneaglin.online/cop4813/">Course Info</a></li>
+    </ul>
+</nav>
+    </header>
+	<main>
+        <section>
+            <h2>This page is for Assignment 5!</h2>
+			<p>Create a spirograph with user inputs!</p>
+        </section>
+
+<div>
+    <label for="R">R (Outer circle radius):</label>
+    <input type="number" id="R" min="50" max="200" value="180" required>
+</div>
+<div>
+    <label for="r">r (Inner circle radius):</label>
+    <input type="number" id="r" min="10" max="100" value="80" required>
+</div>
+<div>
+    <label for="O">O (Offset):</label>
+    <input type="number" id="O" min="0" max="50" value="50" required>
+</div>
+    <button id="drawButton">Draw Spirograph</button>
+	<br><br>
+    <canvas id="spirographCanvas" width="1000" height="1000"></canvas>
+</body>
+</html>
+
+    <script>
+const canvas = document.getElementById('spirographCanvas');
+const ctx = canvas.getContext('2d');
+const drawButton = document.getElementById('drawButton');
+
+function drawSpirograph(R, r, O) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.beginPath();
+    ctx.strokeStyle = 'red';
+    
+    let t = 0;
+    const scale = 1;
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    
+    function draw() {
+        if (t > Math.PI * 60) return;
+        
+        const x = (R + r) * Math.cos(t) - (r + O) * Math.cos(((R + r) / r) * t);
+        const y = (R + r) * Math.sin(t) - (r + O) * Math.sin(((R + r) / r) * t);
+        
+        ctx.lineTo(centerX + x * scale, centerY + y * scale);
+        ctx.stroke();
+        
+        t += 0.05; // DRAWING SPEED!!!
+        requestAnimationFrame(draw);
+    }
+    
+    draw();
+}
+
+drawButton.addEventListener('click', () => {
+    const R = parseInt(document.getElementById('R').value);
+    const r = parseInt(document.getElementById('r').value);
+    const O = parseInt(document.getElementById('O').value);
+    
+    drawSpirograph(R, r, O);
+});
+
+    </script>
+    </main>
+    <footer>
+        <p>Created By Kristen McLarnon</p>
+    </footer>
+	</body>
