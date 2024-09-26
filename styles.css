@@ -131,3 +131,11 @@ input[type="submit"] {
 textarea {
     resize: vertical;
 }
+canvas {
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
