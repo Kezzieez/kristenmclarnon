@@ -1,0 +1,29 @@
+{
+  "toppings": [
+    {
+      "toppingName": "Pepperoni",
+      "toppingRank": 1,
+      "percentageLiked": 64
+    },
+    {
+      "toppingName": "Sausage",
+      "toppingRank": 2,
+      "percentageLiked": 56
+    },
+    {
+      "toppingName": "Mushrooms",
+      "toppingRank": 3,
+      "percentageLiked": 54
+    },
+    {
+      "toppingName": "Extra Cheese",
+      "toppingRank": 4,
+      "percentageLiked": 52
+    },
+    {
+      "toppingName": "Bacon",
+      "toppingRank": 5,
+      "percentageLiked": 51
+    }
+  ]
+}

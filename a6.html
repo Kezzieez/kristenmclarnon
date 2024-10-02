@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 6</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Pizza Toppings Popularity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #239d42;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        <!--CENTER-->
+        td:nth-child(1), td:nth-child(2), td:nth-child(3) {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <h1>COP4813 Web Systems I Assignment 6</h1>
+<nav>
+<ul>
+    <li><a href="index.html">Home</a></li>
+    <li>
+        <a href="#">Assignments</a>
+        <ul class="dropdown">
+            <li><a href="a1.html">Assignment 1</a></li>
+            <li><a href="a2.html">Assignment 2</a></li>
+            <li><a href="a3.html">Assignment 3</a></li>
+            <li><a href="a4.html">Assignment 4</a></li>
+    <li><a href="a5.html">Assignment 5</a></li>
+            <li><a href="a6.html">Assignment 6</a></li>
+            <li><a href="a7.html">Assignment 7</a></li>
+            <li><a href="a8.html">Assignment 8</a></li>
+            <li><a href="a9.html">Assignment 9</a></li>
+            <li><a href="a10.html">Assignment 10</a></li>
+            <li><a href="a11.html">Assignment 11</a></li>
+            <li><a href="a12.html">Assignment 12</a></li>
+            <li><a href="a13.html">Assignment 13</a></li>
+            <li><a href="a14.html">Assignment 14</a></li>
+            <li><a href="a15.html">Assignment 15</a></li>
+        </ul>
+    </li>
+    <li><a href="https://roneaglin.online/cop4813/">Course Info</a></li>
+</ul>
+</nav>
+</header>
+<h2>Pizza Toppings Popularity</h2>
+
+<table id="toppingsTable">
+    <thead>
+        <tr>
+            <th>Toppings</th>
+            <th>Rank</th>
+            <th>Percentage of People Who Like</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $.getJSON('pizza.json', function(data) {
+            var toppings = data.toppings;
+            $.each(toppings, function(index, topping) {
+                $('#toppingsTable tbody').append('<tr><td>' + topping.toppingName + '</td><td>' + topping.toppingRank + '</td><td>' + topping.percentageLiked + '%</td></tr>');
+            });
+        });
+    });
+</script>
+<br>
+<h3>Assignment 6: JSON</h3>
+<p>Create and display a JSON file on a web page. It is displayed here in the table above!</p>
+<br><br>
+<footer>
+  <p>Created By Kristen McLarnon</p>
+</footer>
+</body>
+</html>
