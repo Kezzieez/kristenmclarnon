@@ -55,14 +55,12 @@ cardDeck[51] = "king_of_clubs";
 
 let drawnCards = [];
 let removedCards = [];
-// DOM Elements
 const playerCards = document.getElementById('receivedCards');
 const trashPile = document.getElementById('discardPile');
 const notificationDiv = document.getElementById('disCardMessage');
 const drawButton = document.getElementById('dealButton');
 const clearButton = document.getElementById('resetButton');
 
-// Functions
 function getRemainingCards() {
     return cardDeck.filter(card => !drawnCards.includes(card) && !removedCards.includes(card));
 }
@@ -121,14 +119,11 @@ function handleDrop(event) {
     if (cardImage) {
         trashPile.appendChild(cardImage);
         cardImage.draggable = false;
-        // Removed: notificationDiv.innerHTML = `Card ${cardId.replace(/_/g, ' ')} discarded!`;
         removedCards.push(cardId);
         drawnCards = drawnCards.filter(card => card !== cardId);
     }
 }
 
-
-// Event Listeners
 drawButton.addEventListener('click', drawCards);
 clearButton.addEventListener('click', clearGame);
 
@@ -137,6 +132,4 @@ trashPile.addEventListener('dragover', (event) => {
 });
 
 trashPile.addEventListener('drop', handleDrop);
-
-// Initial setup
 clearGame();
