@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 11</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+    <style>
+
+
+        h3 {
+            color: #444;
+            border-bottom: 2px solid #444;
+            padding-bottom: 5px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .info {
+            font-size: 0.9em;
+            color: #666;
+            margin-left: 10px;
+            font-style: italic;
+        }
+        #takenCourses li {
+            background-color: #e6f3ff;
+        }
+        #availableCourses li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .course-info {
+            flex-grow: 1;
+        }
+        .course-actions {
+            flex-shrink: 0;
+        }
+        #takenCourses {
+    list-style-type: none;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>COP4813 Web Systems I Home Page: Assignment 10</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#">Assignments</a>
+                    <ul class="dropdown">
+                        <li><a href="a1.html">Assignment 1</a></li>
+                        <li><a href="a2.html">Assignment 2</a></li>
+                        <li><a href="a3.html">Assignment 3</a></li>
+                        <li><a href="a4.html">Assignment 4</a></li>
+                        <li><a href="a5.html">Assignment 5</a></li>
+                        <li><a href="a6.html">Assignment 6</a></li>
+                        <li><a href="a7.html">Assignment 7</a></li>
+                        <li><a href="a8.html">Assignment 8</a></li>
+                        <li><a href="a9.html">Assignment 9</a></li>
+                        <li><a href="a10.html">Assignment 10</a></li>
+                        <li><a href="a11.html">Assignment 11</a></li>
+                        <li><a href="a12.html">Assignment 12</a></li>
+                        <li><a href="a13.html">Assignment 13</a></li>
+                        <li><a href="a14.html">Assignment 14</a></li>
+                        <li><a href="a15.html">Assignment 15</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://roneaglin.online/cop4813/">Course Info</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Class Advisor</h1>
+    <h2>Associate of Arts</h2>
+    <h3>* Means class meets the cultural/Global Focus Area. 3 classes required for graduation.</h3>
+    
+    <div>
+        <h3>Courses Taken:</h3>
+        <ul id="takenCourses"></ul>
+    </div>
+    
+    <div>
+        <h3>Available Courses:</h3>
+        <ul id="availableCourses"></ul>
+    </div>
+    
+    <script src="advisor.js"></script>
+</body>
+</html>
