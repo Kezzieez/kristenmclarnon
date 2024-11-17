@@ -1,0 +1,42 @@
+[
+    {
+        "Name": "WordPress",
+        "Support": "Open Source",
+        "Technology": "PHP/MySQL",
+        "Capabilities": "Supports themes, plugins, custom templates, public API",
+        "Limitations": "Security vulnerabilities with plugins, updates required",
+        "Examples": "https://wordpress.org"
+    },
+    {
+        "Name": "Squarespace",
+        "Support": "Proprietary",
+        "Technology": "Proprietary",
+        "Capabilities": "Drag-and-drop builder, beautiful templates, integrated e-commerce",
+        "Limitations": "Limited customization, monthly fees",
+        "Examples": "https://www.squarespace.com"
+    },
+    {
+        "Name": "Drupal",
+        "Support": "Open Source",
+        "Technology": "PHP/MySQL",
+        "Capabilities": "Highly customizable, strong user roles and permissions",
+        "Limitations": "Requires technical knowledge, more complex setup",
+        "Examples": "https://www.drupal.org"
+    },
+    {
+        "Name": "Shopify",
+        "Support": "Proprietary",
+        "Technology": "Ruby on Rails",
+        "Capabilities": "E-commerce focused, easy to use, secure payment options",
+        "Limitations": "Monthly fees can add up, limited customization",
+        "Examples": "https://www.shopify.com"
+    },
+    {
+        "Name": "Magento",
+        "Support": "Open Source",
+        "Technology": "PHP/MySQL",
+        "Capabilities": "Highly scalable, flexible for e-commerce solutions",
+        "Limitations": "Complex setup, requires technical expertise",
+        "Examples": "https://magento.com"
+    }
+]
