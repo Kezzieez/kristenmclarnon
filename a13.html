@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Catcher</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+      h1,
+      p {
+        text-align: center;
+      }
+
+      #gameCanvas {
+        border: 2px solid #000;
+        background-color: #fff;
+        margin-top: 20px;
+      }
+
+      #score {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <h1>COP4813 Web Systems I Home Page: Assignment 10</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#">Assignments</a>
+                    <ul class="dropdown">
+                        <li><a href="a1.html">Assignment 1</a></li>
+                        <li><a href="a2.html">Assignment 2</a></li>
+                        <li><a href="a3.html">Assignment 3</a></li>
+                        <li><a href="a4.html">Assignment 4</a></li>
+                        <li><a href="a5.html">Assignment 5</a></li>
+                        <li><a href="a6.html">Assignment 6</a></li>
+                        <li><a href="a7.html">Assignment 7</a></li>
+                        <li><a href="a8.html">Assignment 8</a></li>
+                        <li><a href="a9.html">Assignment 9</a></li>
+                        <li><a href="a10.html">Assignment 10</a></li>
+                        <li><a href="a11.html">Assignment 11</a></li>
+                        <li><a href="a12.html">Assignment 12</a></li>
+                        <li><a href="a13.html">Assignment 13</a></li>
+                        <li><a href="a14.html">Assignment 14</a></li>
+                        <li><a href="a15.html">Assignment 15</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://roneaglin.online/cop4813/">Course Info</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Color Catcher - Prototype</h1>
+    <p>
+      Use the left and right arrow keys to move the bucket. Press the spacebar
+      to change the bucket's color. <br><br>Catch balls of the same color as the bucket
+      to earn +1 point. Catch the wrong colored ball to lose 1 point.
+    </p>
+    <p id="score">Score: 0</p>
+    <canvas id="gameCanvas"></canvas>
+    <script>
+      const canvas = document.getElementById("gameCanvas")
+      const ctx = canvas.getContext("2d")
+      canvas.width = 400
+      canvas.height = 600
+
+      const colors = ["red", "green", "blue"]
+      let balls = []
+      let bucket = { x: 175, y: 550, width: 50, height: 20, color: "red" } // Initial position and color
+      let score = 0
+
+      // Listen for key events
+      let keys = { left: false, right: false, space: false }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft") keys.left = true
+        if (e.key === "ArrowRight") keys.right = true
+        if (e.key === " ") keys.space = true // Spacebar for color change
+      })
+
+      document.addEventListener("keyup", function (e) {
+        if (e.key === "ArrowLeft") keys.left = false
+        if (e.key === "ArrowRight") keys.right = false
+        if (e.key === " ") keys.space = false
+      })
+
+      // Start game loop
+      function startGame() {
+        setInterval(updateGameArea, 20)
+      }
+
+      // Create a ball
+      function createBall() {
+        const color = colors[Math.floor(Math.random() * colors.length)]
+        const x = Math.random() * (canvas.width - 20)
+        balls.push({ x, y: 0, radius: 10, color })
+      }
+
+      // Draw all balls
+      function drawBalls() {
+        balls.forEach((ball) => {
+          ctx.beginPath()
+          ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2)
+          ctx.fillStyle = ball.color
+          ctx.fill()
+          ctx.closePath()
+        })
+      }
+
+      // Update ball positions
+      function updateBallPositions() {
+        balls.forEach((ball) => {
+          ball.y += 3 // Move balls down
+          if (ball.y > canvas.height) {
+            balls.shift() // Remove ball when it goes off screen
+          }
+        })
+      }
+
+      // Check if bucket catches a ball
+      function checkCollisions() {
+        balls.forEach((ball, index) => {
+          if (
+            ball.y + ball.radius >= bucket.y &&
+            ball.x > bucket.x &&
+            ball.x < bucket.x + bucket.width
+          ) {
+            if (ball.color === bucket.color) {
+              score++ // Correct color catch
+            } else {
+              score-- // Incorrect color catch
+            }
+
+            balls.splice(index, 1) // Remove the ball after catch
+          }
+        })
+      }
+
+      // Draw bucket
+      function drawBucket() {
+        ctx.beginPath()
+        ctx.rect(bucket.x, bucket.y, bucket.width, bucket.height)
+        ctx.fillStyle = bucket.color
+        ctx.fill()
+        ctx.closePath()
+      }
+
+      // Update game area (game loop)
+      function updateGameArea() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height) // Clear canvas
+
+        updateBallPositions()
+        drawBalls()
+        drawBucket()
+        checkCollisions()
+
+        if (keys.left && bucket.x > 0) bucket.x -= 5 // Move left
+        if (keys.right && bucket.x < canvas.width - bucket.width) bucket.x += 5 // Move right
+
+        if (keys.space) {
+          bucket.color = colors[Math.floor(Math.random() * colors.length)] // Change color
+          keys.space = false // Prevent continuous color change
+        }
+
+        if (Math.random() < 0.02) createBall() // Random chance to create a new ball
+
+        // Update score display
+        document.getElementById("score").textContent = `Score: ${score}`
+      }
+
+      startGame()
+    </script>
+    <br><br>
+    <footer>
+        <p>Prototype by Kristen McLarnon, Jorge Cardozo, and Kirk Haun.</p>
+    </footer>
+  </body>
+</html>
